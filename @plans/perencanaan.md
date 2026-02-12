@@ -8,7 +8,7 @@ Membangun sebuah aplikasi web untuk pencatatan keuangan pribadi yang modern, rin
 
 | Kategori          | Teknologi             | Versi/Spesifikasi                   | Keterangan                                    |
 | ----------------- | --------------------- | ----------------------------------- | --------------------------------------------- |
-| **Backend**       | Laravel               | Versi 11+ (Terbaru)                 | Framework utama untuk membangun logika aplikasi |
+| **Backend**       | Laravel               | Versi 12                              | Framework utama untuk membangun logika aplikasi |
 | **Database**      | SQLite                |                                     | Sistem database relasional, portabel & ringan |
 | **Frontend**      | Alpine.js             | v3                                  | Library JavaScript untuk interaktivitas       |
 | **Styling**       | Tailwind CSS          | v4.0 (Lightning JIT Engine)         | Utilitas CSS untuk membangun UI kustom        |
@@ -100,13 +100,24 @@ Menyimpan setiap catatan transaksi keuangan pengguna.
     -   Konfigurasi file `.env` untuk menggunakan database SQLite dan membuat file `database/database.sqlite`.
 2.  **Instalasi Dependensi:**
     -   Install Laravel Breeze untuk autentikasi: `composer require laravel/breeze --dev`.
-    -   Jalankan `php artisan breeze:install` dengan stack Blade & Alpine.js.
-    -   Install Tailwind CSS v4: `npm install tailwindcss@next @tailwindcss/forms @tailwindcss/typography`.
-    -   Konfigurasi `tailwind.config.js` dan `vite.config.js`.
-3.  **Migrasi Awal:**
+    -   Jalankan `php artisan breeze:install blade-alpine` untuk stack Blade + Alpine.js.
+    -   Tailwind CSS v4 sudah include di Laravel 12 fresh install.
+    -   Konfigurasi Tailwind di `resources/css/app.css` menggunakan `@theme` directive.
+    -   Tidak perlu `tailwind.config.js` untuk konfigurasi dasar.
+    -   Setup Vite di `vite.config.js` (sudah default Laravel 12).
+3.  **Konfigurasi Middleware (Laravel 12 Style):**
+    -   Middleware dikonfigurasi di `bootstrap/app.php` menggunakan `->withMiddleware()`.
+    -   Contoh konfigurasi auth middleware di closure.
+    -   **Catatan:** Tidak ada file `app/Http/Kernel.php` di Laravel 12.
+4.  **Migrasi Awal:**
     -   Jalankan `php artisan migrate` untuk membuat tabel `users` dan tabel bawaan lainnya.
-
 ### **Tahap 2: Backend - Logika Inti**
+
+**Catatan Laravel 12:**
+- Console Kernel (`app/Console/Kernel.php`) tidak ada di Laravel 12.
+- Console commands di `app/Console/Commands/` otomatis tersedia.
+- Routing console di `routes/console.php`.
+
 1.  **Pembuatan Modul Kategori:**
     -   Buat Model, Migration, Factory, dan Seeder untuk `Category`.
     -   `php artisan make:model Category -mfsc` (Model, Factory, Seeder, Controller).
