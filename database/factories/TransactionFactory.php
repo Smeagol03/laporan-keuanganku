@@ -17,7 +17,9 @@ class TransactionFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'amount' => $this->faker->randomFloat(2, 1, 1000),
+            'description' => $this->faker->sentence,
+            'transaction_date' => $this->faker->date(),
         ];
     }
 }

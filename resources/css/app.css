@@ -1,4 +1,1 @@
-@theme {
-  /* Inherit from preflight */
-  @inherits base, components, utilities;
-}
+@import "tailwindcss";

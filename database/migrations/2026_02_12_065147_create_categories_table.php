@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('type', ['income', 'expense']);
             $table->string('color')->default('#FFFFFF');
             $table->timestamps();
-            
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

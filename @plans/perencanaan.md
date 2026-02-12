@@ -135,21 +135,40 @@ Menyimpan setiap catatan transaksi keuangan pengguna.
     -   Implementasikan query Eloquent untuk menghitung `Total Saldo`, `Pemasukan Bulan Ini`, dan `Pengeluaran Bulan Ini`.
     -   Data ini akan dilewatkan ke view dashboard.
 
-### **Tahap 3: Frontend - Antarmuka Pengguna**
+### **Tahap 3: Frontend - Antarmuka Pengguna** ✅ SELESAI
+
+**Status:** Tahap 3 telah selesai diimplementasi dengan Alpine.js modals dan Tailwind CSS v4.
+
 1.  **Layout Utama:**
-    -   Buat layout aplikasi utama (`app.blade.php`) yang mencakup navigasi, header, dan konten utama.
+    -   Menggunakan layout Breeze (`layouts/app.blade.php`) yang mencakup navigasi, header, dan konten utama.
+    -   **Navigation telah diperbarui** dengan menu:
+        -   Dashboard
+        -   Transaksi
+        -   Kategori
+
 2.  **Halaman Kategori:**
-    -   Desain UI untuk menampilkan daftar kategori.
-    -   Gunakan Alpine.js untuk menampilkan modal/form _create_ dan _edit_ kategori tanpa perlu me-refresh halaman.
+    -   File: `resources/views/categories/index.blade.php`
+    -   Desain UI menampilkan daftar kategori dalam grid cards dengan warna visual.
+    -   **Create Modal:** Form tambah kategori dengan validasi live (Alpine.js) untuk warna.
+    -   **Edit Modal:** Form edit kategori yang pre-filled data.
+    -   Tombol Delete dengan konfirmasi.
+
 3.  **Halaman Transaksi:**
-    -   Desain UI untuk menampilkan daftar transaksi dengan pagination.
-    -   Buat form input transaksi, kemungkinan dalam sebuah modal.
-    -   Gunakan Alpine.js untuk interaktivitas seperti dropdown kategori dan date picker.
-4.  **Halaman Dashboard:**
-    -   Visualisasikan data ringkasan yang diterima dari `DashboardController`.
-    -   Tampilkan saldo, total bulanan, dan grafik sederhana.
+    -   File: `resources/views/transactions/index.blade.php`
+    -   Desain UI menampilkan tabel transaksi dengan pagination.
+    -   **Filter:** Filter berdasarkan rentang tanggal dan kategori.
+    -   **Create Modal:** Form tambah transaksi dengan dropdown kategori dinamis.
+    -   **Edit Modal:** Form edit transaksi yang pre-filled data.
+    -   Menampilkan tipe (income/expense) dan warna kategori.
+
+4.  **Dashboard & Ringkasan:**
+    -   File: `resources/views/dashboard.blade.php` (sudah ada dari Breeze)
+    -   Perlu diperbarui untuk menampilkan ringkasan keuangan.
+
 5.  **Styling:**
-    -   Terapkan styling konsisten di seluruh aplikasi menggunakan Tailwind CSS.
+    -   Menggunakan Tailwind CSS v4 secara konsisten.
+    -   Modal support melalui Breeze components (`x-modal`).
+    -   Alpine.js untuk interaktivitas (color picker, modal handling).
 
 ### **Tahap 4: Testing & Finalisasi**
 1.  **Feature Tests (Pest):**

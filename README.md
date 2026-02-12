@@ -1,11 +1,68 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Aplikasi Laporan Keuanganku
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web untuk pencatatan keuangan pribadi yang modern, ringan, aman, dan production-ready. Aplikasi ini memberikan pengguna kemudahan dalam mengelola dan memvisualisasikan pemasukan serta pengeluaran mereka dengan antarmuka yang intuitif dan responsif.
+
+## Fitur Utama
+
+- **Autentikasi Pengguna**: Registrasi, login, dan logout yang aman
+- **Manajemen Kategori**: CRUD untuk kategori pemasukan dan pengeluaran
+- **Pencatatan Transaksi**: CRUD untuk transaksi keuangan
+- **Dashboard & Ringkasan**: Menampilkan saldo total dan ringkasan bulanan
+- **Laporan & Filter**: Filter transaksi berdasarkan tanggal dan kategori
+
+## Teknologi yang Digunakan
+
+- **Backend**: Laravel 12
+- **Database**: SQLite
+- **Frontend**: Alpine.js v3
+- **Styling**: Tailwind CSS v4
+- **Build Tool**: Vite
+- **Testing**: Pest
+
+## Instalasi
+
+1. Clone repository ini
+2. Jalankan `composer install`
+3. Jalankan `npm install`
+4. Copy `.env.example` ke `.env` dan sesuaikan konfigurasi
+5. Jalankan `php artisan key:generate`
+6. Buat file database SQLite: `touch database/database.sqlite`
+7. Jalankan migrasi: `php artisan migrate`
+8. Jalankan aplikasi: `php artisan serve`
+
+## Setup Produksi
+
+Gunakan script `production-setup.sh` untuk melakukan setup aplikasi dalam mode produksi:
+
+```bash
+chmod +x production-setup.sh
+./production-setup.sh
+```
+
+## Backup Database
+
+Gunakan script `backup-db.sh` untuk melakukan backup database SQLite:
+
+```bash
+chmod +x backup-db.sh
+./backup-db.sh
+```
+
+## Testing
+
+Jalankan test dengan perintah:
+
+```bash
+php artisan test
+```
+
+## Kontribusi
+
+Kontribusi sangat diterima. Silakan buat pull request untuk perbaikan atau penambahan fitur.
+
+## Lisensi
+
+Aplikasi ini dilisensikan di bawah lisensi MIT.
 
 ## About Laravel
 
